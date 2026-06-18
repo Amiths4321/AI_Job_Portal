@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Admin - Job Postings{% endblock %}
+{% block content %}
+<h2>Job Postings ({{ jobs|length }})</h2>
+<p><a class="btn btn-primary" href="{{ url_for('admin_job_new') }}">+ Post New Job</a></p>
+
+<table class="admin-table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Department</th>
+            <th>Location</th>
+            <th>Type</th>
+            <th>Applications</th>
+            <th>Status</th>
+            <th>Posted On</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for job in jobs %}
+        <tr>
+            <td>{{ job.title }}</td>
+            <td>{{ job.department }}</td>
+            <td>{{ job.location }}</td>
+            <td>{{ job.job_type }}</td>
+            <td>{{ job.applications|length }}</td>
+            <td>
+                <span class="status-badge {% if not job.is_active %}status-inactive{% endif %}">
+                    {{ "Active" if job.is_active else "Closed" }}
+                </span>
+            </td>
+            <td>{{ job.posted_on.strftime("%d-%b-%Y") }}</td>
+            <td>
+                <form method="POST" action="{{ url_for('admin_job_toggle', job_id=job.id) }}">
+                    <button type="submit" class="btn btn-small">
+                        {{ "Close" if job.is_active else "Reopen" }}
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="8">No jobs posted yet.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

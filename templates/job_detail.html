@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{ job.title }}{% endblock %}
+{% block content %}
+<a class="back-link" href="{{ url_for('home') }}">&larr; Back to all jobs</a>
+
+<div class="job-detail-card">
+    <h1>{{ job.title }}</h1>
+    <p class="job-meta">{{ job.department }} &middot; {{ job.location }} &middot; {{ job.job_type }}</p>
+    <p class="job-exp"><strong>Experience required:</strong> {{ job.experience_required }}</p>
+
+    <h3>Job Description</h3>
+    <p class="job-description">{{ job.description }}</p>
+
+    <a class="btn btn-primary" href="{{ url_for('step1', job_id=job.id) }}">Apply for this Position</a>
+</div>
+{% endblock %}

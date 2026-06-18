@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Apply - Review & Submit{% endblock %}
+{% block content %}
+
+<div class="stepper">
+    <span class="step done">1. Personal</span>
+    <span class="step done">2. Education & Experience</span>
+    <span class="step done">3. Resume</span>
+    <span class="step active">4. Review</span>
+</div>
+
+<h2>Review Your Application</h2>
+<p class="hint">Applying for: <strong>{{ job.title }}</strong></p>
+
+<div class="review-card">
+    <h3>Personal Details</h3>
+    <p><strong>Name:</strong> {{ data.full_name }}</p>
+    <p><strong>Email:</strong> {{ data.email }}</p>
+    <p><strong>Phone:</strong> {{ data.phone }}</p>
+    <p><strong>DOB:</strong> {{ data.dob }}</p>
+    <p><strong>Address:</strong> {{ data.address }}</p>
+
+    <h3>Education & Experience</h3>
+    <p><strong>Qualification:</strong> {{ data.highest_qualification }}</p>
+    <p><strong>University:</strong> {{ data.university }}</p>
+    <p><strong>Graduation Year:</strong> {{ data.graduation_year }}</p>
+    <p><strong>Current Company:</strong> {{ data.current_company or 'N/A (Fresher)' }}</p>
+    <p><strong>Experience:</strong> {{ data.years_experience }} years</p>
+    <p><strong>Current CTC:</strong> {{ data.current_ctc or 'N/A' }}</p>
+    <p><strong>Expected CTC:</strong> ₹{{ data.expected_ctc }}</p>
+    <p><strong>Notice Period:</strong> {{ data.notice_period }}</p>
+
+    <h3>Documents</h3>
+    <p><strong>Resume:</strong> {{ data.resume_filename }}</p>
+    <p><strong>Cover Letter:</strong> {{ data.cover_letter_filename or 'Not provided' }}</p>
+</div>
+
+<form method="POST">
+    <div class="form-actions">
+        <a class="btn btn-secondary" href="{{ url_for('step3', job_id=job.id) }}">&larr; Back</a>
+        <button type="submit" class="btn btn-primary">Confirm & Submit Application</button>
+    </div>
+</form>
+{% endblock %}

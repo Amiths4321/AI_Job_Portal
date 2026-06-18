@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Apply - Step 2{% endblock %}
+{% block content %}
+
+<div class="stepper">
+    <span class="step done">1. Personal</span>
+    <span class="step active">2. Education & Experience</span>
+    <span class="step">3. Resume</span>
+    <span class="step">4. Review</span>
+</div>
+
+<h2>Applying for: {{ job.title }}</h2>
+<form method="POST" class="form-card">
+    <label>Highest Qualification</label>
+    <select name="highest_qualification" required>
+        <option value="" disabled {% if not data.highest_qualification %}selected{% endif %}>Select qualification</option>
+        <option value="Diploma" {% if data.highest_qualification == 'Diploma' %}selected{% endif %}>Diploma</option>
+        <option value="Bachelor's Degree" {% if data.highest_qualification == "Bachelor's Degree" %}selected{% endif %}>Bachelor's Degree</option>
+        <option value="Master's Degree" {% if data.highest_qualification == "Master's Degree" %}selected{% endif %}>Master's Degree</option>
+        <option value="PhD" {% if data.highest_qualification == 'PhD' %}selected{% endif %}>PhD</option>
+    </select>
+
+    <label>University / Institution</label>
+    <input type="text" name="university" value="{{ data.university or '' }}" required>
+
+    <label>Graduation Year</label>
+    <input type="number" name="graduation_year" min="1980" max="2030" value="{{ data.graduation_year or '' }}" required>
+
+    <label>Current Company (leave blank if fresher)</label>
+    <input type="text" name="current_company" value="{{ data.current_company or '' }}">
+
+    <label>Years of Experience</label>
+    <input type="number" name="years_experience" min="0" step="0.1" value="{{ data.years_experience or '' }}" required>
+
+    <label>Current CTC (₹ per annum, leave blank if fresher)</label>
+    <input type="number" name="current_ctc" min="0" step="1000" value="{{ data.current_ctc or '' }}">
+
+    <label>Expected CTC (₹ per annum)</label>
+    <input type="number" name="expected_ctc" min="0" step="1000" value="{{ data.expected_ctc or '' }}" required>
+
+    <label>Notice Period</label>
+    <select name="notice_period" required>
+        <option value="" disabled {% if not data.notice_period %}selected{% endif %}>Select notice period</option>
+        <option value="Immediate" {% if data.notice_period == 'Immediate' %}selected{% endif %}>Immediate</option>
+        <option value="15 Days" {% if data.notice_period == '15 Days' %}selected{% endif %}>15 Days</option>
+        <option value="30 Days" {% if data.notice_period == '30 Days' %}selected{% endif %}>30 Days</option>
+        <option value="60 Days" {% if data.notice_period == '60 Days' %}selected{% endif %}>60 Days</option>
+        <option value="90 Days" {% if data.notice_period == '90 Days' %}selected{% endif %}>90 Days</option>
+    </select>
+
+    <div class="form-actions">
+        <a class="btn btn-secondary" href="{{ url_for('step1', job_id=job.id) }}">&larr; Back</a>
+        <button type="submit" class="btn btn-primary">Next: Resume &rarr;</button>
+    </div>
+</form>
+{% endblock %}

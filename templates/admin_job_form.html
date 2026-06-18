@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Post New Job{% endblock %}
+{% block content %}
+<h2>Post a New Job</h2>
+<form method="POST" class="form-card">
+    <label>Job Title</label>
+    <input type="text" name="title" required>
+
+    <label>Department</label>
+    <input type="text" name="department" required>
+
+    <label>Location</label>
+    <input type="text" name="location" required>
+
+    <label>Job Type</label>
+    <select name="job_type" required>
+        <option value="" disabled selected>Select type</option>
+        <option value="Full-time">Full-time</option>
+        <option value="Part-time">Part-time</option>
+        <option value="Internship">Internship</option>
+        <option value="Contract">Contract</option>
+    </select>
+
+    <label>Experience Required</label>
+    <input type="text" name="experience_required" placeholder="e.g. 2-4 years" required>
+
+    <label>Job Description</label>
+    <textarea name="description" rows="6" required></textarea>
+
+    <div class="form-actions">
+        <a class="btn btn-secondary" href="{{ url_for('admin_jobs') }}">&larr; Cancel</a>
+        <button type="submit" class="btn btn-primary">Post Job</button>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Apply - Step 3{% endblock %}
+{% block content %}
+
+<div class="stepper">
+    <span class="step done">1. Personal</span>
+    <span class="step done">2. Education & Experience</span>
+    <span class="step active">3. Resume</span>
+    <span class="step">4. Review</span>
+</div>
+
+<h2>Applying for: {{ job.title }}</h2>
+<form method="POST" class="form-card" enctype="multipart/form-data">
+    <label>Resume — PDF, DOC or DOCX (required)</label>
+    <input type="file" name="resume" accept=".pdf,.doc,.docx" required>
+
+    <label>Cover Letter — PDF, DOC or DOCX (optional)</label>
+    <input type="file" name="cover_letter" accept=".pdf,.doc,.docx">
+
+    <p class="hint">Maximum file size: 5 MB per document.</p>
+
+    <div class="form-actions">
+        <a class="btn btn-secondary" href="{{ url_for('step2', job_id=job.id) }}">&larr; Back</a>
+        <button type="submit" class="btn btn-primary">Next: Review &rarr;</button>
+    </div>
+</form>
+{% endblock %}

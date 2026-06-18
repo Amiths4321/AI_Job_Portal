@@ -1,0 +1,276 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #f4f6f9;
+    color: #1f2937;
+}
+
+.topbar {
+    background: #1b4d3e;
+    color: #fff;
+    padding: 16px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+}
+
+.topbar nav a {
+    color: #d1f0e3;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+.topbar nav a:hover {
+    color: #fff;
+}
+
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.job-list {
+    display: grid;
+    gap: 16px;
+}
+
+.job-card {
+    display: block;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    text-decoration: none;
+    color: inherit;
+    border-left: 4px solid #1b4d3e;
+}
+
+.job-card h3 {
+    margin: 0 0 6px 0;
+    color: #1b4d3e;
+}
+
+.job-meta {
+    color: #6b7280;
+    font-size: 14px;
+    margin: 4px 0;
+}
+
+.job-exp {
+    font-size: 14px;
+    margin: 4px 0;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: #1b4d3e;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.job-detail-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.job-description {
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.stepper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    font-size: 13px;
+}
+
+.stepper .step {
+    flex: 1;
+    text-align: center;
+    padding: 8px 4px;
+    background: #e5e7eb;
+    color: #6b7280;
+    border-bottom: 3px solid #d1d5db;
+}
+
+.stepper .step.active {
+    background: #d1f0e3;
+    color: #1b4d3e;
+    border-bottom: 3px solid #1b4d3e;
+    font-weight: 600;
+}
+
+.stepper .step.done {
+    background: #dcfce7;
+    color: #166534;
+    border-bottom: 3px solid #22c55e;
+}
+
+.form-card, .review-card, .confirmation-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+label {
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #1b4d3e;
+}
+
+.hint {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.form-actions {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    display: inline-block;
+    padding: 11px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background: #1b4d3e;
+    color: #fff;
+    margin-left: auto;
+}
+
+.btn-secondary {
+    background: #e5e7eb;
+    color: #1f2937;
+}
+
+.btn-small {
+    background: #e5e7eb;
+    color: #1f2937;
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.review-card h3 {
+    margin-top: 20px;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 6px;
+    color: #1b4d3e;
+}
+
+.review-card p {
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+.confirmation-card {
+    text-align: center;
+}
+
+.ref-no {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1b4d3e;
+    background: #d1f0e3;
+    padding: 14px;
+    border-radius: 8px;
+    margin: 16px 0;
+    letter-spacing: 1px;
+}
+
+.flash {
+    background: #fef3c7;
+    border: 1px solid #f59e0b;
+    color: #92400e;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.filter-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.filter-bar select {
+    width: auto;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.admin-table th, .admin-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+    font-size: 13px;
+}
+
+.admin-table th {
+    background: #1b4d3e;
+    color: #fff;
+}
+
+.status-form select {
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+.status-badge {
+    background: #dcfce7;
+    color: #166534;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-inactive {
+    background: #fee2e2;
+    color: #991b1b;
+}
